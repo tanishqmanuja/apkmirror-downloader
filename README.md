@@ -69,7 +69,7 @@ If you encounter any issues or have suggestions for improvement, please [open an
 
 ## Contributing
 
-If you want to contribute to the development of APKMD.
+If you want to contribute to the development of APKMD, feel free to contact me.
 
 ---
 
