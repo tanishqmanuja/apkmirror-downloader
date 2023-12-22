@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  release:
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup ENV
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          cat .node-version >> $NODE_VERSION
+
+      - name: Setup Repository
+        uses: ./.github/actions/setup
+        with:
+          node: ${{ env.NODE_VERSION }}
+
+      - name: Build and Package
+        run: pnpm build && pnpm package
+
+      - name: Upload to Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: bin/*
+          tag_name: ${{ env.RELEASE_VERSION }}

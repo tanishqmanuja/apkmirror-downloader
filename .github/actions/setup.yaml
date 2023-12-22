@@ -1,0 +1,24 @@
+name: Setup Repository
+description: Setup Node and PNPM, Install dependencies
+inputs:
+  node:
+    description: Node.js version
+    default: lts/*
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Setup Node (${{ inputs.node }})
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node }}
+        cache: pnpm
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install

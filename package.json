@@ -1,0 +1,27 @@
+{
+  "name": "apkmd",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "APK Mirror Downloader",
+  "scripts": {
+    "start": "tsx ./src/index.ts",
+    "build": "tsx ./scripts/build.ts",
+    "package": "pkg -t node20.10.0-win-x64 -C GZip --out-path bin ./dist/apkmd.cjs"
+  },
+  "author": "tanishqmanuja",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "minimist": "^1.2.8",
+    "ora-classic": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.10.5",
+    "@yao-pkg/pkg": "^5.11.0",
+    "esbuild": "^0.19.10",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
