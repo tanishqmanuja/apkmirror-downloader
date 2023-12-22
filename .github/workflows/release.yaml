@@ -20,7 +20,7 @@ jobs:
       - name: Setup ENV
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          cat .node-version >> $NODE_VERSION
+          echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
       - name: Setup Repository
         uses: ./.github/actions/setup
