@@ -65,7 +65,7 @@ APKMD is licensed under the [MIT License](LICENSE). Feel free to contribute and 
 
 ## Issues
 
-If you encounter any issues or have suggestions for improvement, please [open an issue on GitHub](https://github.com/your-username/apkmd/issues).
+If you encounter any issues or have suggestions for improvement, please [open an issue on GitHub](https://github.com/tanishqmanuja/apkmirror-downloader/issues).
 
 ## Contributing
 
