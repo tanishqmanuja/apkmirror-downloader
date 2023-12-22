@@ -2,5 +2,4 @@ node_modules
 dist
 bin
 downloads
-pnpm-lock.yaml
 apps.json
