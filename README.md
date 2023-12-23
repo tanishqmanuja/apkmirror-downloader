@@ -64,3 +64,7 @@ This command will read the configuration from `apps.json` and manage the specifi
 ## License
 
 APKMD is licensed under the [MIT License](LICENSE). Feel free to contribute and improve the tool.
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
