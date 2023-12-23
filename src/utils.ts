@@ -23,3 +23,14 @@ export async function downloadAPK(url: string, name: string): Promise<void> {
     throw new Error("An error occured while trying to download the file");
   }
 }
+
+export async function waitForKeypressExit(exitCode = 0) {
+  console.log("\nPress any key to exit ...");
+  process.stdin.setRawMode(true);
+  return new Promise<void>((resolve) =>
+    process.stdin.once("data", () => {
+      process.stdin.setRawMode(false);
+      resolve();
+    })
+  ).finally(() => process.exit(exitCode));
+}

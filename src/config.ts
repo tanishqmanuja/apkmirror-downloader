@@ -10,7 +10,7 @@ type AppConfig = {
   version?: string;
 };
 
-type Config = {
+export type Config = {
   options?: {
     arch?: "universal" | "armeabi-v7a" | "arm64-v8a" | "x86" | "x86_64";
     out?: string;

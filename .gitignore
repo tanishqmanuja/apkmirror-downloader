@@ -1,5 +1,9 @@
+# deps
 node_modules
-dist
+
+# output
 bin
+
+# cli generated
 downloads
 apps.json

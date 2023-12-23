@@ -5,8 +5,7 @@
   "description": "APK Mirror Downloader",
   "scripts": {
     "start": "tsx ./src/index.ts",
-    "build": "tsx ./scripts/build.ts",
-    "package": "pkg -t node20.10.0-win-x64 -C GZip --out-path bin ./dist/apkmd.cjs"
+    "build": "tsx ./scripts/build.ts"
   },
   "author": "tanishqmanuja",
   "license": "MIT",
