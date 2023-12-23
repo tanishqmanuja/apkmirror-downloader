@@ -64,15 +64,3 @@ This command will read the configuration from `apps.json` and manage the specifi
 ## License
 
 APKMD is licensed under the [MIT License](LICENSE). Feel free to contribute and improve the tool.
-
-## Issues
-
-If you encounter any issues or have suggestions for improvement, please [open an issue on GitHub](https://github.com/tanishqmanuja/apkmirror-downloader/issues).
-
-## Contributing
-
-If you want to contribute to the development of APKMD, feel free to create a pull request.
-
----
-
-Thank you for using APKMD! If you have any questions or need further assistance, feel free to reach out on the [GitHub repository](https://github.com/your-username/apkmd).
