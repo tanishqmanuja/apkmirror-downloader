@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "type": "module",
   "description": "APK Mirror Downloader",
+  "bin": {
+    "apkmd": "./bin/apkmd.cjs"
+  },
   "scripts": {
     "start": "tsx ./src/index.ts",
     "build": "tsx ./scripts/build.ts"
