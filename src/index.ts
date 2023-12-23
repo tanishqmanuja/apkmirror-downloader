@@ -52,6 +52,9 @@ async function processConfig(config: Config) {
       await getDownloadUrl(found.url)
         .then((url) => downloadAPK(url, appName))
         .then(() => {
+          spinner.clear();
+        })
+        .then(() => {
           ora().succeed(
             `Downloaded ${app.org}/${app.repo}@${app.version} => ${appName}.apk`
           );
