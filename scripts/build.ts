@@ -36,6 +36,16 @@ try {
     "bin/apkmd.exe",
   ]);
 
+  await exec([
+    config.outfile,
+    "--target",
+    `node${NODE_VERSION}-linux-x64`,
+    "--compress",
+    "GZip",
+    "--output",
+    "bin/apkmd",
+  ]);
+
   console.log("\n==> Build success");
   process.exit(0);
 } catch (e) {
