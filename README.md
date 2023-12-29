@@ -61,10 +61,13 @@ apkmd apps.json
 
 This command will read the configuration from `apps.json` and manage the specified apps. You can also drag and drop the config file over apkmd.exe.
 
-## License
-
-APKMD is licensed under the [MIT License](LICENSE). Feel free to contribute and improve the tool.
+> [!NOTE]
+> Sometimes, download can fail at random. This is most likely due to rate limit protection by APKMirror using Cloudflare.
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+## License
+
+APKMD is licensed under the [MIT License](LICENSE). Feel free to contribute and improve the tool.
