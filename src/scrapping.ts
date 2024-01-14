@@ -32,6 +32,13 @@ async function getDirectDownloadUrl(downloadPageUrl: string) {
   return downloadUrl;
 }
 
+function extractVersion(input: string) {
+  const versionRegex = /\b\d+(\.\d+)+\b/;
+  const match = input.match(versionRegex);
+
+  return match ? match[0] : undefined;
+}
+
 export async function getLatestVersion(org: string, repo: string) {
   const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}`;
 
@@ -43,7 +50,7 @@ export async function getLatestVersion(org: string, repo: string) {
     `#primary > div.listWidget.p-relative > div:nth-child(2) > div.appRow > div > div:nth-child(2) > div > h5 > a`
   );
 
-  return version.text().split(" ").at(-1);
+  return extractVersion(version.text());
 }
 
 export async function getDownloadUrl(downloadPageUrl: string) {
