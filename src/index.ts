@@ -38,7 +38,7 @@ async function processConfig(config: Config) {
       const variants = await getVariants(app.org, app.repo, app.version);
       const found =
         (config.options?.arch
-          ? variants.find((v) => v.arch === config.options?.arch)
+          ? variants.findLast((v) => v.arch === config.options?.arch)
           : undefined) ?? variants.find((v) => v.arch === "universal");
 
       if (!found) {
