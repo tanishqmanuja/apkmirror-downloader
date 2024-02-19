@@ -1,6 +1,6 @@
 {
   "name": "apkmd",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "APK Mirror Downloader",
   "bin": {
