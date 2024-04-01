@@ -71,11 +71,20 @@ async function processConfig(config: Config) {
     })
   );
 
-  spinner.succeed(
-    `Downloaded [${p.filter((p) => p.status === "fulfilled").length}/${
-      p.length
-    }] apps`
-  );
+  const isRejected = (
+    input: PromiseSettledResult<unknown>
+  ): input is PromiseRejectedResult => input.status === "rejected";
+
+  spinner.stop();
+  p.filter(isRejected).forEach((p) => console.error(p.reason));
+
+  if (p.some((p) => p.status === "fulfilled")) {
+    spinner.succeed(
+      `Downloaded [${p.filter((p) => p.status === "fulfilled").length}/${
+        p.length
+      }] apps`
+    );
+  }
 }
 
 resolveConfigPath()
