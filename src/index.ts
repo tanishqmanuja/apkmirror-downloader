@@ -2,7 +2,11 @@ import { existsSync } from "fs";
 import minimist from "minimist";
 import ora from "ora-classic";
 
-import { getDownloadUrl, getLatestVersion, getVariants } from "./scrapping";
+import {
+  getDownloadUrl,
+  getStableLatestVersion,
+  getVariants,
+} from "./scrapping";
 import { downloadAPK, waitForKeypressExit } from "./utils";
 import { FALLBACK_CONFIG, parseConfig, type Config } from "./config";
 
@@ -29,7 +33,8 @@ async function processConfig(config: Config) {
 
   const p = await Promise.allSettled(
     apps.map(async (app) => {
-      app.version = app.version ?? (await getLatestVersion(app.org, app.repo));
+      app.version =
+        app.version ?? (await getStableLatestVersion(app.org, app.repo));
 
       if (!app.version) {
         throw new Error(`Could not find a version for ${app.org}/${app.repo}`);

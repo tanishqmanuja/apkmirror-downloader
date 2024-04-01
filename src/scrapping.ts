@@ -39,18 +39,28 @@ function extractVersion(input: string) {
   return match ? match[0] : undefined;
 }
 
-export async function getLatestVersion(org: string, repo: string) {
+export async function getStableLatestVersion(org: string, repo: string) {
   const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}`;
 
   const response = await fetch(apkmUrl);
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  const version = $(
-    `#primary > div.listWidget.p-relative > div:nth-child(2) > div.appRow > div > div:nth-child(2) > div > h5 > a`
-  );
+  const versions = $(
+    `#primary > div.listWidget.p-relative > div > div.appRow > div > div:nth-child(2) > div > h5 > a`
+  )
+    .toArray()
+    .map((v) => $(v).text());
 
-  return extractVersion(version.text());
+  const stableVersion = versions.filter(
+    (v) => !v.includes("alpha") && !v.includes("beta")
+  )[0];
+
+  if (!stableVersion) {
+    throw new Error("Could not find stable version");
+  }
+
+  return extractVersion(stableVersion);
 }
 
 export async function getDownloadUrl(downloadPageUrl: string) {
