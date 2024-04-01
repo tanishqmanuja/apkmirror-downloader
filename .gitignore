@@ -7,3 +7,4 @@ bin
 # cli generated
 downloads
 apps.json
+apps.*.json
