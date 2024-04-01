@@ -60,7 +60,7 @@ export async function getDownloadUrl(downloadPageUrl: string) {
 }
 
 export async function getVariants(org: string, repo: string, version: string) {
-  const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}/${repo}-${version.replace(
+  const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}/${repo}-${version.replaceAll(
     ".",
     "-"
   )}-release`;
