@@ -33,7 +33,7 @@ async function getDirectDownloadUrl(downloadPageUrl: string) {
 }
 
 function extractVersion(input: string) {
-  const versionRegex = /\b\d+(\.\d+)+\b/;
+  const versionRegex = /\b\d+(\.\d+)+(-\S+)?\b/;
   const match = input.match(versionRegex);
 
   return match ? match[0] : undefined;
