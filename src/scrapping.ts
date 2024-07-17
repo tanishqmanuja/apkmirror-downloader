@@ -69,7 +69,7 @@ export async function getDownloadUrl(downloadPageUrl: string) {
     .then((d) => BASE_URL + d);
 }
 
-export async function getVariants(org: string, repo: string, version: string) {
+export async function getVariants(org: string, repo: string, version: string, bundle: bool) {
   const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}/${repo}-${version.replaceAll(
     ".",
     "-"
@@ -79,9 +79,12 @@ export async function getVariants(org: string, repo: string, version: string) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
-  const rows = $(
-    '.variants-table .table-row:has(span.apkm-badge:contains("APK"))'
-  );
+  var rows;
+  if (bundle) {
+    rows = $('.variants-table .table-row:has(span.apkm-badge:contains("BUNDLE"))');
+  } else {
+    rows = $('.variants-table .table-row:has(span.apkm-badge:contains("APK"))');
+  }
 
   const parsedData: {
     variant: string;
