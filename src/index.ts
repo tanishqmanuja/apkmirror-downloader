@@ -40,7 +40,7 @@ async function processConfig(config: Config) {
         throw new Error(`Could not find a version for ${app.org}/${app.repo}`);
       }
 
-      const variants = await getVariants(app.org, app.repo, app.version);
+      const variants = await getVariants(app.org, app.repo, app.version, app.bundle);
       const found =
         (config.options?.arch
           ? variants.findLast((v) => v.arch === config.options?.arch)
@@ -61,7 +61,7 @@ async function processConfig(config: Config) {
         })
         .then(() => {
           ora().succeed(
-            `Downloaded ${app.org}/${app.repo}@${app.version} => ${appName}.apk`
+            `Downloaded ${app.org}/${app.repo}@${app.version} => ${appName}`
           );
         })
         .catch(() => {

@@ -37,7 +37,8 @@ The configuration file is a JSON file that defines the apps you want to manage a
     {
       "name": "ytm",
       "org": "google-inc",
-      "repo": "youtube-music"
+      "repo": "youtube-music",
+      "bundle": true
     }
   ]
 }
@@ -48,10 +49,11 @@ The configuration file is a JSON file that defines the apps you want to manage a
   - **arch**: Specifies the target architecture for downloading APKs (e.g., "arm64-v8a").
 
 - **apps**: An array of app objects, each with the following properties:
-  - **name**: The name of the app.
+  - **name**: (Optional) The name of the app.
   - **org**: The APKMirror organization name.
   - **repo**: The APKMirror repository/app name.
   - **version**: (Optional) The specific version of the app. If not provided, the latest version will be used.
+  - **bundle**: (Optional) Switch between bundle (APKM) or regular APK. If not set, it defaults to APK.
 
 ### Example
 

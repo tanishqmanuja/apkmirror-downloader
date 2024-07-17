@@ -8,6 +8,7 @@ type AppConfig = {
   org: string;
   repo: string;
   version?: string;
+  bundle?: bool;
 };
 
 export type Config = {
