@@ -46,6 +46,10 @@ export async function getVersion(org: string, repo: string, ver: string) {
   const html = await response.text();
   const $ = cheerio.load(html);
 
+  if (await response.status != 200) {
+    throw new Error("Got response code: " + response.status);
+  }
+
   const versions = $(
     `#primary > div.listWidget.p-relative > div > div.appRow > div > div:nth-child(2) > div > h5 > a`
   )
