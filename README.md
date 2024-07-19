@@ -32,13 +32,14 @@ The configuration file is a JSON file that defines the apps you want to manage a
       "name": "yt",
       "org": "google-inc",
       "repo": "youtube",
-      "version": "18.40.34"
+      "version": "beta",
+      "bundle": true
     },
     {
       "name": "ytm",
       "org": "google-inc",
       "repo": "youtube-music",
-      "bundle": true
+      "version": "7.10.51"
     }
   ]
 }
@@ -52,7 +53,7 @@ The configuration file is a JSON file that defines the apps you want to manage a
   - **name**: (Optional) The name of the app.
   - **org**: The APKMirror organization name.
   - **repo**: The APKMirror repository/app name.
-  - **version**: (Optional) The specific version of the app. If not provided, the latest version will be used.
+  - **version**: (Optional) The version. Can be specific version number or word to match for, such as "beta" or "alpha". If not provided, the latest stable version will be downloaded.
   - **bundle**: (Optional) Switch between bundle (APKM) or regular APK. If not set, it defaults to APK.
 
 ### Example

@@ -4,7 +4,7 @@ import ora from "ora-classic";
 
 import {
   getDownloadUrl,
-  getStableLatestVersion,
+  getVersion,
   getVariants,
 } from "./scrapping";
 import { downloadAPK, waitForKeypressExit } from "./utils";
@@ -33,8 +33,7 @@ async function processConfig(config: Config) {
 
   const p = await Promise.allSettled(
     apps.map(async (app) => {
-      app.version =
-        app.version ?? (await getStableLatestVersion(app.org, app.repo));
+      app.version = await getVersion(app.org, app.repo, app.version);
 
       if (!app.version) {
         throw new Error(`Could not find a version for ${app.org}/${app.repo}`);

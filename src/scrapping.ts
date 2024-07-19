@@ -39,7 +39,7 @@ function extractVersion(input: string) {
   return match ? match[0] : undefined;
 }
 
-export async function getStableLatestVersion(org: string, repo: string) {
+export async function getVersion(org: string, repo: string, ver: string) {
   const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}`;
 
   const response = await fetch(apkmUrl);
@@ -52,15 +52,21 @@ export async function getStableLatestVersion(org: string, repo: string) {
     .toArray()
     .map((v) => $(v).text());
 
-  const stableVersion = versions.filter(
-    (v) => !v.includes("alpha") && !v.includes("beta")
-  )[0];
+  var selectedVersion;
 
-  if (!stableVersion) {
-    throw new Error("Could not find stable version");
+  if (!ver) {
+    selectedVersion = versions.filter(
+      (v) => !v.includes("alpha") && !v.includes("beta")
+    );
+  } else {
+    selectedVersion = versions.filter((v) => v.includes(ver));
   }
 
-  return extractVersion(stableVersion);
+  if (!selectedVersion) {
+    throw new Error("Could not find version");
+  }
+
+  return extractVersion(selectedVersion[0]);
 }
 
 export async function getDownloadUrl(downloadPageUrl: string) {
@@ -84,6 +90,10 @@ export async function getVariants(org: string, repo: string, version: string, bu
     rows = $('.variants-table .table-row:has(span.apkm-badge:contains("BUNDLE"))');
   } else {
     rows = $('.variants-table .table-row:has(span.apkm-badge:contains("APK"))');
+  }
+
+  if (rows == "") {
+    rows = $('.variants-table .table-row:has(span.apkm-badge)');
   }
 
   const parsedData: {
