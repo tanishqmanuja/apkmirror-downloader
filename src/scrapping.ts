@@ -40,7 +40,7 @@ function extractVersion(input: string) {
 }
 
 export async function getStableLatestVersion(org: string, repo: string) {
-  const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}`;
+  const apkmUrl = `${BASE_URL}/apk/${org}/${repo}`;
 
   const response = await fetch(apkmUrl);
   const html = await response.text();
@@ -70,7 +70,7 @@ export async function getDownloadUrl(downloadPageUrl: string) {
 }
 
 export async function getVariants(org: string, repo: string, version: string, bundle: bool) {
-  const apkmUrl = `https://www.apkmirror.com/apk/${org}/${repo}/${repo}-${version.replaceAll(
+  const apkmUrl = `${BASE_URL}/apk/${org}/${repo}/${repo}-${version.replaceAll(
     ".",
     "-"
   )}-release`;
