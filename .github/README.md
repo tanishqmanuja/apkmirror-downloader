@@ -13,11 +13,13 @@ APKMD is a CLI tool that allows you to download APKs from Apkmirror. This repo a
 ## 🚀 Install
 
 Using `npm`
+
 ```bash
 npm install apkmirror-downloader
 ```
 
 Using `bun`
+
 ```bash
 bun add apkmirror-downloader
 ```
@@ -30,12 +32,12 @@ Or use any other package manager like `yarn` or `pnpm`
 import { APKMirrorDownloader } from "apkmirror-downloader";
 
 const apkmd = new APKMirrorDownloader(
-  { outDir: "./downloads" } // <-- 🟠 APKMDOptions (optional)
+  { outDir: "./downloads" }, // <-- 🟠 APKMDOptions (optional)
 );
 
 apkmd.download(
   { org: "google-inc", repo: "youtube" }, // <-- App (required)
-  { type: "apk" } // <-- 🟣 AppOptions (optional), will be merged with APKMDOptions
+  { type: "apk" }, // <-- 🟣 AppOptions (optional), will be merged with APKMDOptions
 );
 
 // OR
@@ -44,15 +46,17 @@ APKMirrorDownloader.download({ org: "google-inc", repo: "youtube" });
 ```
 
 🟠 **APKMDOptions Interface**
+
 - arch: Optional. The architecture of the application. For example, arm64-v8a, armeabi-v7a, etc.
 - dpi: Optional. The screen density of the application. For example, 240dpi, 320dpi, 480dpi, etc.
 - outDir: Optional. The output directory where the application files will be stored.
 
 🟣 **AppOptions Interface**
+
 - version: Optional. The version of the application.
 - arch: Optional, DEFAULT: "universal". The architecture of the application. For example, arm64-v8a, armeabi-v7a, etc.
 - dpi: Optional, DEFAULT: "nodpi". The screen density of the application. For example, 240dpi, 320dpi, 480dpi, etc.
-- type: Optional, DEFAULT: "apk". The type of the application. Supported types are "apk" and "bundle". 
+- type: Optional, DEFAULT: "apk". The type of the application. Supported types are "apk" and "bundle".
 - outFile: Optional. The name of the output file where the application will be saved.
 - outDir: Optional. The output directory where the application files will be stored.
 
@@ -107,8 +111,8 @@ Give a ⭐️ if this project helped you!
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY APKMIRROR. The project is provided "as is" without warranty of any kind, either express or implied. Use at your own risk.
 
-
 <!-- Shields -->
+
 [build-status-shield]: https://img.shields.io/github/actions/workflow/status/tanishqmanuja/apkmirror-downloader/ci.yaml?branch=main&style=for-the-badge
 [downloads-shield]: https://img.shields.io/github/downloads/tanishqmanuja/apkmirror-downloader/total?style=for-the-badge&logo=github
 [downloads-url]: https://github.com/tanishqmanuja/apkmirror-downloader/releases/latest
