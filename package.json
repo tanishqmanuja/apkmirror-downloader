@@ -1,6 +1,6 @@
 {
   "name": "apkmirror-downloader",
-  "version": "1.9.9",
+  "version": "2.0.0",
   "description": "Download apk from apkmirror.com with ease",
   "module": "src/index.ts",
   "type": "module",
@@ -10,7 +10,7 @@
   "bin": {
     "apkmd": "dist/cli.js"
   },
-    "keywords": [
+  "keywords": [
     "apkmirror",
     "downlaoder",
     "cli"
