@@ -1,6 +1,6 @@
-![Logo](https://raw.github.com/tanishqmanuja/apkmirror-downloader/v1/assets/banner.png?maxAge=2592000)
+![Logo](https://raw.github.com/tanishqmanuja/static/main/banners/apkmirror-downloader.png?maxAge=2592000)
 
-# APKMD //APK Mirror Downloader
+# APKMD //APKMirror Downloader
 
 [![Downloads][downloads-shield]][downloads-url]
 [![NPM Version][npm-shield]][npm-url]
