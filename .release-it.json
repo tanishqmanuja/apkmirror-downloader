@@ -1,0 +1,37 @@
+{
+  "git": {
+    "tagName": "v${version}",
+    "commitMessage": "chore: release v${version}",
+    "pushRepo": "https://github.com/tanishqmanuja/apkmirror-downloader"
+  },
+  "hooks": {
+    "after:bump": ["bun run build", " bun run compile"]
+  },
+  "github": {
+    "release": true,
+    "releaseName": "vRYjs v${version}",
+    "tokenRef": "GITHUB_TOKEN",
+    "assets": ["out/*"]
+  },
+  "npm": {
+    "publish": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "🎉 Features"
+          },
+          {
+            "type": "fix",
+            "section": "🐛 Bug Fixes"
+          }
+        ]
+      },
+      "ignoreRecommendedBump": true
+    }
+  }
+}
