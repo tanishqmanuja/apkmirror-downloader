@@ -72,7 +72,7 @@ CLI can be downloaded from [releases](https://github.com/tanishqmanuja/apkmirror
 Usage can be found using the following command
 
 ```bash
-apkmd -h
+apkmd --help
 ```
 
 For downloading multiple apks use apps.json file
@@ -106,6 +106,11 @@ apkmd apps.json
 ## 🐱 Show your support
 
 Give a ⭐️ if this project helped you!
+
+## 👨‍💻 Projects to checkout
+
+- [**gh-apkmirror-dl**](https://github.com/Yakov5776/gh-apkmirror-dl) by [**Yakov**](https://github.com/Yakov5776) \
+  ➡️ A GitHub Action to download APKs from Apkmirror
 
 ## 💀 Disclaimer
 

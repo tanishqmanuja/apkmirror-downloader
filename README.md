@@ -57,7 +57,7 @@ CLI can be downloaded from [releases](https://github.com/tanishqmanuja/apkmirror
 Usage can be found using the following command
 
 ```bash
-apkmd -h
+apkmd --help
 ```
 
 For downloading multiple apks use apps.json file
