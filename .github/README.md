@@ -109,8 +109,8 @@ Give a ⭐️ if this project helped you!
 
 ## 👨‍💻 Projects to checkout
 
-- [**gh-apkmirror-dl**](https://github.com/Yakov5776/gh-apkmirror-dl) by [**Yakov**](https://github.com/Yakov5776) \
-  ➡️ A GitHub Action to download APKs from Apkmirror
+1. 📦 [**gh-apkmirror-dl**](https://github.com/Yakov5776/gh-apkmirror-dl) by [**Yakov**](https://github.com/Yakov5776) \
+   A GitHub Action to download APKs from Apkmirror
 
 ## 💀 Disclaimer
 
