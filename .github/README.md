@@ -4,11 +4,11 @@
 
 [![Downloads][downloads-shield]][downloads-url]
 [![NPM Version][npm-shield]][npm-url]
-![GitHub Workflow Status][build-status-shield]
+![GitHub Workflow Status][ci-status-shield]
 [![Language][language-shield]][language-url]
 [![License][license-shield]][license-url]
 
-APKMD is a CLI tool that allows you to download APKs from Apkmirror. This repo also provides a npm package [apkmirror-downloader](https://www.npmjs.com/package/apkmirror-downloader) that allows you to download APKs from APKMirror programatically.
+APKMD is a CLI tool that allows you to download APKs from Apkmirror. This repo also provides a npm package [apkmirror-downloader](https://www.npmjs.com/package/apkmirror-downloader) that allows you to do the same programatically.
 
 ## 🚀 Install
 
@@ -118,7 +118,7 @@ THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY APKMIRROR. The project is provided
 
 <!-- Shields -->
 
-[build-status-shield]: https://img.shields.io/github/actions/workflow/status/tanishqmanuja/apkmirror-downloader/ci.yaml?branch=main&style=for-the-badge
+[ci-status-shield]: https://img.shields.io/github/actions/workflow/status/tanishqmanuja/apkmirror-downloader/ci.yaml?branch=main&style=for-the-badge&label=ci
 [downloads-shield]: https://img.shields.io/github/downloads/tanishqmanuja/apkmirror-downloader/total?style=for-the-badge&logo=github
 [downloads-url]: https://github.com/tanishqmanuja/apkmirror-downloader/releases/latest
 [language-shield]: https://img.shields.io/github/languages/top/tanishqmanuja/apkmirror-downloader?style=for-the-badge
