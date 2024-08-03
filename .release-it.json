@@ -9,7 +9,7 @@
   },
   "github": {
     "release": true,
-    "releaseName": "vRYjs v${version}",
+    "releaseName": "APKMirror Downloader v${version}",
     "tokenRef": "GITHUB_TOKEN",
     "assets": ["out/*"]
   },
