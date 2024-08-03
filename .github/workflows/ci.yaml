@@ -4,8 +4,14 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "README.md"
+      - ".github/README.md"
 
   pull_request:
+    paths-ignore:
+      - "README.md"
+      - ".github/README.md"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
