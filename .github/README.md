@@ -112,6 +112,9 @@ Give a ⭐️ if this project helped you!
 1. 📦 [**gh-apkmirror-dl**](https://github.com/Yakov5776/gh-apkmirror-dl) by [**Yakov**](https://github.com/Yakov5776) \
    A GitHub Action to download APKs from Apkmirror
 
+2. 📦 [**revanced-auto-patcher**](https://github.com/Sp3EdeR/revanced-auto-patcher) by [**Sp3EdeR**](https://github.com/Sp3EdeR) \
+   A Python script to patch apps using Revanced or Revanced Extended
+
 ## 💀 Disclaimer
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY APKMIRROR. The project is provided "as is" without warranty of any kind, either express or implied. Use at your own risk.
