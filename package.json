@@ -1,6 +1,6 @@
 {
   "name": "apkmirror-downloader",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Download apk from apkmirror.com with ease",
   "type": "module",
   "module": "dist/index.js",
@@ -20,7 +20,10 @@
   "author": "tanishqmanuja",
   "license": "MIT",
   "homepage": "https://github.com/tanishqmanuja/apkmirror-downloader#readme",
-  "repository": "github:tanishqmanuja/apkmirror-downloader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanishqmanuja/apkmirror-downloader.git"
+  },
   "packageManager": "bun@1.1.21",
   "scripts": {
     "build": "bun scripts/build.ts",
