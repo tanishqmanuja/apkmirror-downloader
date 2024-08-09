@@ -38,6 +38,7 @@ APKMirrorDownloader.download({ org: "google-inc", repo: "youtube" });
 🟠 **APKMDOptions Interface**
 - arch: Optional. The architecture of the application. For example, arm64-v8a, armeabi-v7a, etc.
 - dpi: Optional. The screen density of the application. For example, 240dpi, 320dpi, 480dpi, etc.
+- minAndroidVersion: Optional. The minimum Android version that the application is compatible with.
 - outDir: Optional. The output directory where the application files will be stored.
 
 🟣 **AppOptions Interface**
@@ -45,6 +46,7 @@ APKMirrorDownloader.download({ org: "google-inc", repo: "youtube" });
 - arch: Optional, DEFAULT: "universal". The architecture of the application. For example, arm64-v8a, armeabi-v7a, etc.
 - dpi: Optional, DEFAULT: "nodpi". The screen density of the application. For example, 240dpi, 320dpi, 480dpi, etc.
 - type: Optional, DEFAULT: "apk". The type of the application. Supported types are "apk" and "bundle". 
+- minAndroidVersion: Optional. The minimum Android version that the application is compatible with.
 - outFile: Optional. The name of the output file where the application will be saved.
 - outDir: Optional. The output directory where the application files will be stored.
 
