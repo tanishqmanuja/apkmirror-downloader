@@ -34,6 +34,7 @@ export type AppOptions = {
   arch?: string;
   dpi?: string;
   type?: AppType;
+  minAndroidVersion?: string;
   outFile?: string;
   outDir?: string;
 };
