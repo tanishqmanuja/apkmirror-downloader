@@ -48,8 +48,9 @@ yargs(process.argv.slice(2))
             ({ dest }) => {
               console.log(`Downloaded to ${dest}`);
             },
-            () => {
+            e => {
               console.log(`Unable to download ${org}/${repo}`);
+              console.log(e.message);
             },
           )
           .finally(() => {
