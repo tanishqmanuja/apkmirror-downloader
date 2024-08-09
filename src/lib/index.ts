@@ -21,6 +21,7 @@ import {
 export type APKMDOptions = {
   arch?: AppOptions["arch"];
   dpi?: AppOptions["dpi"];
+  minAndroidVersion?: AppOptions["minAndroidVersion"];
   outDir?: AppOptions["outDir"];
 };
 
@@ -99,6 +100,14 @@ export class APKMirrorDownloader {
     // filter by dpi
     if (o.dpi !== "*" && o.dpi !== "any") {
       variants = variants.filter(v => v.dpi === o.dpi);
+    }
+
+    // filter by minAndroidVersion
+    if (o.minAndroidVersion) {
+      variants = variants.filter(
+        v =>
+          parseFloat(v.minAndroidVersion) <= parseFloat(o.minAndroidVersion!),
+      );
     }
 
     // filter by type
