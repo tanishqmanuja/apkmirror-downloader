@@ -92,6 +92,11 @@ yargs(process.argv.slice(2))
           alias: "t",
           choices: ["apk", "bundle"],
         })
+        .option("minandroidversion", {
+          type: "string",
+          describe: "Minimum Android version",
+          alias: "m",
+        })
         .option("outfile", {
           type: "string",
           describe: "Output file",
@@ -112,6 +117,7 @@ yargs(process.argv.slice(2))
         arch: argv.arch,
         dpi: argv.dpi,
         type: argv.type as AppOptions["type"],
+        minAndroidVersion: argv.minandroidversion,
         outFile: argv.outfile,
         outDir: argv.outdir,
       };
