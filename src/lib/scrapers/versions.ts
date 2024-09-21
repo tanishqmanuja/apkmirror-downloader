@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import { load } from "cheerio";
 
 import { isNotNull } from "../../utils/typescript";
 import { withBaseUrl } from "../utils";
@@ -10,7 +10,7 @@ export function getVersions(repoPageUrl: string) {
 }
 
 export function extractVersions(versionsPageHtml: string) {
-  const $ = cheerio.load(versionsPageHtml);
+  const $ = load(versionsPageHtml);
   const table = $('.listWidget:has(a[name="all_versions"])').first();
   if (!table) {
     throw new Error("Could not find versions table");

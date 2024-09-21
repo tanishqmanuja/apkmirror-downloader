@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import { load } from "cheerio";
 import { match } from "ts-pattern";
 
 import { isNotNull } from "../../utils/typescript";
@@ -12,7 +12,7 @@ export function getVariants(variantsPageUrl: string) {
 }
 
 export function extractVariants(variantsPageHtml: string) {
-  const $ = cheerio.load(variantsPageHtml);
+  const $ = load(variantsPageHtml);
 
   const table = $(".variants-table").first();
   if (!table) {
