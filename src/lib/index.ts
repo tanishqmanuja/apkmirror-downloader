@@ -1,3 +1,5 @@
+import { existsSync } from "fs";
+
 import { match } from "ts-pattern";
 
 import { cleanObject } from "../utils/object";
@@ -30,6 +32,7 @@ const DEFAULT_APP_OPTIONS = {
   version: "stable",
   arch: "universal",
   dpi: "nodpi",
+  overwrite: true,
 } satisfies AppOptions;
 
 export type APKMDOptionsWithSuggestions = APKMDOptions & {
@@ -154,8 +157,12 @@ export class APKMirrorDownloader {
       const outFile = ensureExtension(o.outFile ?? filename, extension);
       const dest = `${outDir}/${outFile}`;
 
+      if (!o.overwrite && existsSync(dest)) {
+        return { dest, skipped: true as const };
+      }
+
       await Bun.write(dest, res);
-      return { dest };
+      return { dest, skipped: false as const };
     });
   }
 }

@@ -37,4 +37,5 @@ export type AppOptions = {
   minAndroidVersion?: string;
   outFile?: string;
   outDir?: string;
+  overwrite?: boolean;
 };

@@ -45,8 +45,13 @@ yargs(process.argv.slice(2))
         await apkmd
           .download({ org, repo }, options)
           .then(
-            ({ dest }) => {
-              console.log(`Downloaded to ${dest}`);
+            ({ dest, skipped }) => {
+              if (skipped) {
+                console.log(`Skipped ${org}/${repo}`);
+                console.log(`Already exists at ${dest}`);
+              } else {
+                console.log(`Downloaded to ${dest}`);
+              }
             },
             e => {
               console.log(`Unable to download ${org}/${repo}`);
@@ -106,6 +111,11 @@ yargs(process.argv.slice(2))
         .option("outdir", {
           type: "string",
           describe: "Output directory",
+        })
+        .option("overwrite", {
+          type: "boolean",
+          describe: "Overwrite existing files",
+          default: true,
         });
     },
     async argv => {
@@ -121,11 +131,17 @@ yargs(process.argv.slice(2))
         minAndroidVersion: argv.minandroidversion,
         outFile: argv.outfile,
         outDir: argv.outdir,
+        overwrite: argv.overwrite,
       };
 
       await APKMirrorDownloader.download(app, options).then(
-        ({ dest }) => {
-          console.log(`Downloaded to ${dest}`);
+        ({ dest, skipped }) => {
+          if (skipped) {
+            console.log(`Skipped ${app.org}/${app.repo}`);
+            console.log(`Already exists at ${dest}`);
+          } else {
+            console.log(`Downloaded to ${dest}`);
+          }
         },
         err => {
           console.error(err);

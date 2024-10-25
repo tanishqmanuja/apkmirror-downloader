@@ -51,6 +51,7 @@ APKMirrorDownloader.download({ org: "google-inc", repo: "youtube" });
 - dpi: Optional. The screen density of the application. For example, 240dpi, 320dpi, 480dpi, etc.
 - minAndroidVersion: Optional. The minimum Android version that the application is compatible with.
 - outDir: Optional. The output directory where the application files will be stored.
+- overwrite: Optional. Whether to overwrite the output file if it already exists.
 
 🟣 **AppOptions Interface**
 
@@ -61,6 +62,7 @@ APKMirrorDownloader.download({ org: "google-inc", repo: "youtube" });
 - minAndroidVersion: Optional. The minimum Android version that the application is compatible with.
 - outFile: Optional. The name of the output file where the application will be saved.
 - outDir: Optional. The output directory where the application files will be stored.
+- overwrite: Optional. Whether to overwrite the output file if it already exists.
 
 `AppOptions` will be merged automatically with `APKMDOptions` when download function is called.
 
