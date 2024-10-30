@@ -22,6 +22,12 @@ export function getVariants(variantsPageUrl: string) {
 export function extractVariants(variantsPageHtml: string) {
   const $ = load(variantsPageHtml);
 
+  if (variantsPageHtml.includes("Enable JavaScript and cookies to continue")) {
+    throw new Error(
+      "This page cannot be loaded without JavaScript and cookies enabled :(",
+    );
+  }
+
   const table = $(".variants-table").first();
   if (!table) {
     throw new Error("Could not find variants table");

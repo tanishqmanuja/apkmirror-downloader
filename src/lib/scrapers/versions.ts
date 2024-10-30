@@ -11,6 +11,13 @@ export function getVersions(repoPageUrl: string) {
 
 export function extractVersions(versionsPageHtml: string) {
   const $ = load(versionsPageHtml);
+
+  if (versionsPageHtml.includes("Enable JavaScript and cookies to continue")) {
+    throw new Error(
+      "This page cannot be loaded without JavaScript and cookies enabled :(",
+    );
+  }
+
   const table = $('.listWidget:has(a[name="all_versions"])').first();
   if (!table) {
     throw new Error("Could not find versions table");
