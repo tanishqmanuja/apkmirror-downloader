@@ -27,7 +27,7 @@ export function makeVariantsUrl({ org, repo }: App, version: string) {
 export function extractFileNameFromUrl(url: string) {
   const urlobj = new URL(url);
   const parts = urlobj.pathname.split("/");
-  const filename = decodeURI(parts[parts.length - 1]);
+  const filename = decodeURIComponent(parts[parts.length - 1]);
   return filename;
 }
 
