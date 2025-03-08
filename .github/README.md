@@ -119,6 +119,9 @@ Give a ⭐️ if this project helped you!
 2. 📦 [**revanced-auto-patcher**](https://github.com/Sp3EdeR/revanced-auto-patcher) by [**Sp3EdeR**](https://github.com/Sp3EdeR) \
    A Python script to patch apps using Revanced or Revanced Extended
 
+3. 📦 [**apkcombo-downloader**](https://github.com/nirewen/apkcombo-downloader) by [**Eduardo Londero**](https://github.com/nirewen) \
+   A fork of this repo but for APKCombo
+
 ## 💀 Disclaimer
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY APKMIRROR. The project is provided "as is" without warranty of any kind, either express or implied. Use at your own risk.
