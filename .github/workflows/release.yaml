@@ -36,11 +36,6 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Set NPM Config
-        run: npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -53,4 +48,3 @@ jobs:
         run: bun run release ${{ github.event.inputs.bump }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
