@@ -1,6 +1,6 @@
 {
   "name": "apkmirror-downloader",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Download apk from apkmirror.com with ease",
   "type": "module",
   "module": "dist/index.js",
