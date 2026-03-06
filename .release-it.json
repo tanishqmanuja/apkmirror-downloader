@@ -14,8 +14,8 @@
     "assets": ["out/*"]
   },
   "npm": {
-    "publish": true,
-    "provenance": true
+    "publish": false,
+    "skipChecks": true
   },
   "plugins": {
     "@release-it/conventional-changelog": {
