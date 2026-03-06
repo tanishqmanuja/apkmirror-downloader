@@ -5,6 +5,7 @@ import { match } from "ts-pattern";
 import { cleanObject } from "../utils/object";
 import { ensureExtension } from "../utils/path";
 import type { LooseAutocomplete } from "../utils/types";
+import { getFilteredVariant } from "./helpers";
 import { getFinalDownloadUrl } from "./scrapers/downloads";
 import { getVariants, RedirectError } from "./scrapers/variants";
 import { getVersions } from "./scrapers/versions";
@@ -113,34 +114,14 @@ export class APKMirrorDownloader {
         url: result.url,
       };
     } else {
-      let variants = result.variants;
-
-      // filter by arch
-      if (o.arch !== "universal" && o.arch !== "noarch") {
-        variants = variants.find(v => v.arch === o.arch)
-          ? variants.filter(v => v.arch === o.arch)
-          : variants.filter(isUniversalVariant); // fallback to universal
-      } else {
-        variants = variants.filter(isUniversalVariant);
+      selectedVariant = getFilteredVariant(result.variants, o);
+      if (!selectedVariant && o.fallbackArch) {
+        console.log("Using fallback arch:", o.fallbackArch);
+        selectedVariant = getFilteredVariant(result.variants, {
+          ...o,
+          arch: o.fallbackArch,
+        });
       }
-
-      // filter by dpi
-      if (o.dpi !== "*" && o.dpi !== "any") {
-        variants = variants.filter(v => v.dpi === o.dpi);
-      }
-
-      // filter by minAndroidVersion
-      if (o.minAndroidVersion) {
-        variants = variants.filter(
-          v =>
-            parseFloat(v.minAndroidVersion) <= parseFloat(o.minAndroidVersion!),
-        );
-      }
-
-      // filter by type
-      variants = variants.filter(v => v.type === o.type);
-
-      selectedVariant = variants[0];
     }
 
     if (!selectedVariant) {

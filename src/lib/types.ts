@@ -32,6 +32,7 @@ export type App = {
 export type AppOptions = {
   version?: string;
   arch?: string;
+  fallbackArch?: string;
   dpi?: string;
   type?: AppType;
   minAndroidVersion?: string;

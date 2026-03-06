@@ -87,6 +87,10 @@ yargs(process.argv.slice(2))
           describe: "Architecture",
           alias: "a",
         })
+        .option("fallbackarch", {
+          type: "string",
+          describe: "Fallback Architecture",
+        })
         .option("dpi", {
           type: "string",
           describe: "DPI",
@@ -126,6 +130,7 @@ yargs(process.argv.slice(2))
       const options = {
         version: argv.version,
         arch: argv.arch,
+        fallbackArch: argv.fallbackarch,
         dpi: argv.dpi,
         type: argv.type as AppOptions["type"],
         minAndroidVersion: argv.minandroidversion,
