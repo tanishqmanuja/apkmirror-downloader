@@ -2,7 +2,27 @@ import type { Variant } from "./scrapers/variants";
 import type { AppOptions } from "./types";
 import { isUniversalVariant } from "./utils";
 
+export function normalizeVariants(variants: Variant[]): Variant[] {
+  const normalized: Variant[] = [];
+
+  // split if multiple archs found like "arm64-v8a + armeabi-v7a"
+  for (const v of variants) {
+    const archParts = v.arch.split("+").map(a => a.trim());
+    if (archParts.length > 1) {
+      for (const arch of archParts) {
+        normalized.push({ ...v, arch });
+      }
+    } else {
+      normalized.push(v);
+    }
+  }
+
+  return normalized;
+}
+
 export function getFilteredVariant(variants: Variant[], o: AppOptions) {
+  variants = normalizeVariants(variants);
+
   if (o.arch !== "universal" && o.arch !== "noarch") {
     variants = variants.find(v => v.arch === o.arch)
       ? variants.filter(v => v.arch === o.arch)
