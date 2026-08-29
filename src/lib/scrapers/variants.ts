@@ -55,7 +55,7 @@ export function extractVariants(variantsPageHtml: string) {
     const arch = $row.find(".table-cell").eq(1).text();
     const minAndroidVersion = $row.find(".table-cell").eq(2).text();
     const dpi = $row.find(".table-cell").eq(3).text();
-    const url = $row.find(".table-cell").eq(4).find("a").attr("href");
+    const url = $row.find(".table-cell").eq(0).find("a").attr("href");
 
     if (!url) {
       return null;
