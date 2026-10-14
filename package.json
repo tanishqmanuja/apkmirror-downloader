@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "impit": "^0.14.6",
     "ts-pattern": "^5.2.0"
   },
   "exports": {

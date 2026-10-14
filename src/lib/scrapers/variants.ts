@@ -2,15 +2,17 @@ import { load } from "cheerio";
 import { match } from "ts-pattern";
 
 import { isNotNull } from "../../utils/typescript";
+import { impit } from "../impit";
 import { SUPPORTED_APP_TYPES } from "../types";
 import { withBaseUrl } from "../utils";
 
 export class RedirectError extends Error {}
 
 export function getVariants(variantsPageUrl: string) {
-  return fetch(variantsPageUrl)
+  return impit
+    .fetch(variantsPageUrl)
     .then(res => {
-      if (res.redirected) {
+      if (res.url !== variantsPageUrl) {
         throw new RedirectError(res.url);
       }
 

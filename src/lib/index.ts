@@ -6,6 +6,7 @@ import { cleanObject } from "../utils/object";
 import { ensureExtension } from "../utils/path";
 import type { LooseAutocomplete } from "../utils/types";
 import { getFilteredVariant } from "./helpers";
+import { impit } from "./impit";
 import { getFinalDownloadUrl } from "./scrapers/downloads";
 import { getVariants, RedirectError } from "./scrapers/variants";
 import { getVersions } from "./scrapers/versions";
@@ -130,7 +131,7 @@ export class APKMirrorDownloader {
 
     const finalDownloadUrl = await getFinalDownloadUrl(selectedVariant.url);
 
-    return fetch(finalDownloadUrl).then(async res => {
+    return impit.fetch(finalDownloadUrl).then(async res => {
       const filename = extractFileNameFromUrl(res.url);
       const extension = filename.split(".").pop()!;
 
@@ -142,7 +143,7 @@ export class APKMirrorDownloader {
         return { dest, skipped: true as const };
       }
 
-      await Bun.write(dest, res);
+      await Bun.write(dest, new Response(res.body));
       return { dest, skipped: false as const };
     });
   }

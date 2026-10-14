@@ -1,10 +1,12 @@
 import { load } from "cheerio";
 
 import { isNotNull } from "../../utils/typescript";
+import { impit } from "../impit";
 import { withBaseUrl } from "../utils";
 
 export function getVersions(repoPageUrl: string) {
-  return fetch(repoPageUrl)
+  return impit
+    .fetch(repoPageUrl)
     .then(res => res.text())
     .then(extractVersions);
 }
