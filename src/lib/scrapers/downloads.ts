@@ -1,13 +1,15 @@
 import { load } from "cheerio";
 
+import { impit } from "../impit";
 import { withBaseUrl } from "../utils";
 
 export function getFinalDownloadUrl(downloadPageUrl: string) {
-  return fetch(downloadPageUrl)
+  return impit
+    .fetch(downloadPageUrl)
     .then(res => res.text())
     .then(extractRedirectDownloadUrl)
     .then(withBaseUrl)
-    .then(url => fetch(url))
+    .then(url => impit.fetch(url))
     .then(res => res.text())
     .then(extractFinalDownloadUrl)
     .then(withBaseUrl);
